@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+:root {
+    --success-color: #00ff00;
+    --error-color:  #ff4000;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,0.35057773109243695) 0%, rgba(56,244,68,0.5578606442577031) 100%);
+    font-family: 'Open Sans' , sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+.container{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,112,255,0.37298669467787116) 0%, rgba(33,190,145,1) 0%, rgba(34,193,141,0.577468487394958) 0%, rgba(56,244,68,0.5578606442577031) 100%); 
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    width: 400px;
+
+}
+h2{
+    text-align: center;
+    margin: 0 ,2 , 20;
+}
+.form{
+    padding: 30px 40px;
+}
+.form-container{
+    padding: 20px;
+    position: relative;
+}
+.form-container label{
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+
+
+
+}
+.form-container input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+}
+.form-container input:focus{
+    outline: 0;
+    border-color: #777;
+}
+.form-container.success input {
+    border-color: var(--success-color);
+}
+.form-container.error input {
+    border-color: var(--error-color);
+}
+.form-container small {
+    color: var(--error-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden; 
+}
+.form-container.error small{
+    visibility: visible;
+}
+
+.form button {
+    cursor: pointer;
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    width: 50%;
+    background-color: #6bf6c8;
+    border: 2px solid #6bf6c8;
+    border-radius: 4px;
+    color: black;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+.form button:hover{
+    color:#000000;
+    background-color: #9effdf;
+}
