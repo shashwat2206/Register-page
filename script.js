@@ -12,56 +12,23 @@ function showError(input, message ){
 function showSuccess(input){
     const formContainer = input.parentElement;
     formContainer.className = 'form-container success';
-
+}
+function checkRequired(inputArr){
+    inputArr.forEach(function(input){
+    if (input.value.trim() === ''){
+        showError(input,`${getFeildName(input)} is required`);
+    }else{
+        showSuccess(input);
+    }
+})}
+function getFeildName (input){
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 function EmailValidation(input){
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(input);
 }
-function checkPassword(input){
-    const formContainer = input.length;
-    if (formContainer > 6){
-        return true;
-    }
-}
-function checkSimilarity(input){
-    if (password === input){
-        return true;
-    }
-}
-
-form.addEventListener('submit' , function(e){
-    e.preventDefault()
-    if (username.value === ''){
-    showError(username , 'Username is required')
-    }else {
-        showSuccess(username)
-    }
-    if (username.value === ''){
-    showError(username , 'Username is required')
-    }else {
-        showSuccess(username)
-    }
-    if (email.value === ''){
-        showError(email , 'Email is required');
-    }   else if(!EmailValidation(email.value)){
-        showError(email , "Email is not valid");
-    }   else {
-        showSuccess(email);
-    }
-    if (password.value === ''){
-        showError(password , 'Password is required');
-    } else if(!checkPassword(password.value)){
-        showError(password , 'The length of ur password is too small');
-    }else {
-        showSuccess(password);
-    }
-    if (password2.value === ''){
-    showError(password2 , 'Password2 is required')
-    }else if (password2.value != password.value){
-        showError(password2 , 'Passwords do not match')
-    }else {
-        showSuccess(password2)
-    }
-
-})
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    checkRequired([username, email, password, password2]);
+});
